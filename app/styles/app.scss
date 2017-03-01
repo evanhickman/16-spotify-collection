@@ -2,8 +2,61 @@
 // @import 'normalize';
 
 $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
-
+$white: hsl(0, 0%, 21%);
 
 @import 'bulma';
 @import 'font-awesome';
 @import 'box-sizing';
+
+.app {
+  color: #fff;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+
+  &-block {
+    color: #fff;
+  }
+}
+
+.results {
+  overflow: scroll;
+}
+
+.track {
+  &__media {
+    @extend .media-left;
+  }
+
+  &__frame {
+    @extend .image.is-64x64;
+  }
+
+  &__artist {
+    @extend .title;
+    @extend .title.is-4;
+
+    color: #fff;
+  }
+
+  &__name {
+    @extend .title;
+    @extend .subtitle;
+
+    color: #fff;
+  }
+}
+
+.media.is-fullwidth {
+  width: 100%;
+}

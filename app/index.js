@@ -4,5 +4,5 @@ import App from './app.vue';
 
 new Vue({
   ...App,
-  el: 'app',
+  el: '.app',
 });
