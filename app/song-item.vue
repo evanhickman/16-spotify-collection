@@ -4,11 +4,11 @@
       <div class="media is-fullwidth">
         <div class="media-left">
           <p class="track__frame image">
-            <img src="http://bulma.io/images/placeholders/64x64.png" alt="">
+            <img :src="track.album.images[0].url" alt="">
           </p>
         </div>
         <div class="media-content">
-          <h2 class="title track__artist">{{ track.artist }}</h2>
+          <h2 class="title track__artist">{{ track.artists[0].name }}</h2>
           <h3 class="subtitle track__name">{{ track.name }}</h3>
         </div>
         <div class="media-right">
