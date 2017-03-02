@@ -6,22 +6,7 @@
             <p class="panel-heading">
               Pauls
             </p>
-            <div class="panel-block track">
-              <div class="media is-fullwidth">
-                <div class="media-left">
-                  <p class="image is-64x64">
-                    <img src="http://bulma.io/images/placeholders/64x64.png" alt="">
-                  </p>
-                </div>
-                <div class="media-content">
-                  <h2 class="title">Paul Simon</h2>
-                  <h3 class="subtitle">Graceland</h3>
-                </div>
-                <div class="media-right">
-                  <span class="icon is-large"><i class="fa fa-spotify"></span>
-                </div>
-              </div>
-            </div>
+            <song-item v-for="current in tracks" v-bind:track="current"></song-item>
           </div>
         </div>
       </div>
@@ -29,9 +14,29 @@
 </template>
 
 <script>
+import SongItem from './song-item.vue';
+
 export default {
+  components: {
+    SongItem,
+  },
+
+  created() {
+    fetch('https://api.spotify.com/v1/search?query=katy&type=track&offset=0&limit=20')
+    .then(res => res.json())
+    .then((tracks) => {
+      this.tracks = tracks;
+    });
+  },
+
   data() {
-    return {};
+    return {
+      tracks: [
+        { artist: 'Paul Simon', name: 'Graceland' },
+        { artist: 'Paul Simon', name: 'Mother Child Reunion' },
+        { artist: 'Paul Simon', name: 'Gumboot Whatever' },
+      ],
+    };
   },
 
   methods: {
